@@ -2,6 +2,9 @@ import os
 import random
 
 # @TODO Import your Ingestor and MemeEngine classes
+from MemeEngine import MemeEngine
+from QuoteEngine import Ingestor
+from QuoteEngine.models import QuoteModel
 
 
 def generate_meme(path=None, body=None, author=None):
