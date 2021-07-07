@@ -3,17 +3,17 @@
 <img src="https://i.gyazo.com/01038e6756a97109aec83842cc233f44.gif"/>
 
 ## Table of Contents
-* [Project Overview](#Project%20Overview)
-    * [Directory Structure](#Directory%20Structure)
-    * [Modules](#Modules)<br>
-        * [MemeGenerator](#MemeGenerator)
-        * [QuoteEngine](#QuoteEngine)
-* [Getting Started](#Getting%20Started)
-    * [Overview of Key Dependencies](#Overview%20of%20Key%20Dependencies)
-    * [Installing Dependencies](#Installing%20Dependencies)
-    * [Configuring Environment Variables](#Configuring%20Environment%20Variables)
-    * [Running the Flask Web App](#Running%20the%20Flask%20Web%20App)
-    * [Using the Command Line Tool](#Using%20the%20Command%20Line%20Tool)
+* [Project Overview](#project-overview)
+    * [Directory Structure](#directory-structure)
+    * [Modules](#modules)<br>
+        * [MemeGenerator](#memegenerator)
+        * [QuoteEngine](#quoteengine)
+* [Getting Started](#getting-started)
+    * [Overview of Key Dependencies](#overview-of-key-dependencies)
+    * [Installing Dependencies](#installing-dependencies)
+    * [Configuring Environment Variables](#configuring-environment-variables)
+    * [Running the Flask Web App](#running-the-flask-web-app)
+    * [Using the Command Line Tool](#using-the-command-line-tool)
 
 ## Project Overview
 The Meme Generator is a small Flask web app that generates memes based on images and quotes provided. It also lets you generate a new meme by providing a URL for an image, a quote body and a quote author. Additionally, it comes with a command line tool to generate memes. This project was completed as part of the Udacity Intermediate Python Nanodegree.
