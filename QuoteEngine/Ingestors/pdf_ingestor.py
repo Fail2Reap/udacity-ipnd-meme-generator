@@ -16,6 +16,9 @@ class PDFIngestor(IngestorInterface):
 
         Args:
             path (str): Path to the file to ingest.
+
+        Returns:
+            List[QuoteModel]: A list of QuoteModel's.
         """
         # STUDENT NOTE: There was no need to create temporary files.
         # By simply capturing the process output we can simply turn

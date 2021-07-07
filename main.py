@@ -13,7 +13,8 @@ def generate_meme(img_path: str = None, body: str = None,
     """Generates an images and returns a file path to where it's saved.
 
     Args:
-        img_path (str, optional): Path to the source image. Defaults to None.
+        img_path (str, optional): Path to the source image or folder of images.
+        Defaults to None.
         quote (str, optional): Quote to draw on the image. Defaults to None.
         author (str, optional): Author of the quote to draw on the image.
         Defaults to None.
@@ -24,26 +25,29 @@ def generate_meme(img_path: str = None, body: str = None,
     Returns:
         str: File path to the generated image.
     """
-    image_extensions = ['png', 'jpeg']
     img = img_path
+    meme = MemeEngine('./tmp')
 
     # STUDENT NOTE: Enhanced this to accept both a direct file path for the
     # image or a folder path to where one or more images are stored.
-    if not os.path.isfile(img_path) and os.path.isdir(img_path):
+    if not img_path or (not os.path.isfile(img_path)
+       and os.path.isdir(img_path)):
         imgs = []
         images = img_path
         if images is None:
             images = './static/photos/dog/'
 
-        for root, dirs, files in os.walk(images):
+        for root, _, files in os.walk(images):
             imgs = [
                 os.path.join(root, name)
                 for name in files
-                if name.split('.')[1].lower() in image_extensions
+                if name.split('.')[1].lower() in meme.image_extensions
             ]
+
         if not imgs:
-            raise Exception(f'No valid images ({", ".join(image_extensions)})'
-                            f' were found in path: {img_path}')
+            raise Exception(
+                f'No valid images ({", ".join(meme.image_extensions)})'
+                f' were found in path: {img_path}')
         img = random.choice(imgs)
 
     elif not os.path.isfile(img_path) and not os.path.isdir(img_path):
@@ -63,7 +67,6 @@ def generate_meme(img_path: str = None, body: str = None,
             raise Exception('Author is required if a quote body is provided')
         quote = QuoteModel(body, author)
 
-    meme = MemeEngine('./tmp')
     img_path = meme.make_meme(img, quote.body, quote.author)
     return img_path
 
@@ -85,5 +88,6 @@ if __name__ == '__main__':
 
     try:
         print(generate_meme(args.path, args.body, args.author))
+
     except Exception as e:
         print(f'ERROR: {e}')

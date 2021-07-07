@@ -27,5 +27,8 @@ class IngestorInterface(ABC):
 
         Args:
             path (str): Path of file to ingest.
+
+        Returns:
+            List[QuoteModel]: A list of QuoteModel's.
         """
         pass

@@ -16,6 +16,9 @@ class DocxIngestor(IngestorInterface):
 
         Args:
             path (str): Path to the file to ingest.
+
+        Returns:
+            List[QuoteModel]: A list of QuoteModel's.
         """
         return [
             QuoteModel(*para.text.replace('"', "").rstrip('\n').split(' - '))

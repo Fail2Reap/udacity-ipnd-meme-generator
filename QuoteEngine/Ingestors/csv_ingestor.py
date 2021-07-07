@@ -16,6 +16,9 @@ class CSVIngestor(IngestorInterface):
 
         Args:
             path (str): Path to the file to ingest.
+
+        Returns:
+            List[QuoteModel]: A list of QuoteModel's.
         """
         return [
             QuoteModel(row.body.replace('"', ""), row.author)

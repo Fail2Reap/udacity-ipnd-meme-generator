@@ -14,6 +14,9 @@ class TextIngestor(IngestorInterface):
 
         Args:
             path (str): Path to the file to ingest.
+
+        Returns:
+            List[QuoteModel]: A list of QuoteModel's.
         """
         with open(path, encoding="utf-8-sig") as file:
             return [

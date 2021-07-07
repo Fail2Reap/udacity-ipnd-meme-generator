@@ -9,6 +9,8 @@ class MemeEngine:
     """MemeEngine class that provides functionality to
     generate images with quotes."""
 
+    image_extensions = ['png', 'jpeg', 'jpg']
+
     def __init__(self, output_dir: str):
         """Init function for the MemeEngine.
 
