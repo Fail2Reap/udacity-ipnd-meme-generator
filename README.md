@@ -1,8 +1,6 @@
 # Meme Generator
 
 <img src="https://i.gyazo.com/01038e6756a97109aec83842cc233f44.gif"/>
-<br>
-<br>
 
 ## Table of Contents
 * [Project Overview](#Project%20Overview)
@@ -16,13 +14,9 @@
     * [Configuring Environment Variables](#Configuring%20Environment%20Variables)
     * [Running the Flask Web App](#Running%20the%20Flask%20Web%20App)
     * [Using the Command Line Tool](#Using%20the%20Command%20Line%20Tool)
-<br>
-<br>
 
 ## Project Overview
 The Meme Generator is a small Flask web app that generates memes based on images and quotes provided. It also lets you generate a new meme by providing a URL for an image, a quote body and a quote author. Additionally, it comes with a command line tool to generate memes. This project was completed as part of the Udacity Intermediate Python Nanodegree.
-<br>
-<br>
 
 ### Directory Structure
 
@@ -75,8 +69,6 @@ The Meme Generator is a small Flask web app that generates memes based on images
     ├── meme.html
     └── meme_form.html
 ```
-<br>
-<br>
 
 ### Modules
 #### MemeGenerator
@@ -84,15 +76,13 @@ This module exposes the MemeEngine class and its functions.
 
 ##### **Dependencies**
 * [Pillow](https://pillow.readthedocs.io/en/stable/index.html) is a Python Imaging Library that adds image processing capabilities to your Python interpreter. This project uses it to manipulate and work with images to generate memes.
-<br>
 
 ##### **Functions**
-* [make_meme](./MemeGenerator/meme_engine.py#L28) function takes an instance of the [MemeEngine](./MemeGenerator/meme_engine.py#L8) class, an image source path, a quote body, a quote author and an optional width to resize the meme to. It then manipulates the image and adds the quote body and author to the image in the format of `"quote_body" - quote_author`. It then returns a file path to the saved meme.<br><br>
+* [make_meme](./MemeGenerator/meme_engine.py#L28) function takes an instance of the [MemeEngine](./MemeGenerator/meme_engine.py#L8) class, an image source path, a quote body, a quote author and an optional width to resize the meme to. It then manipulates the image and adds the quote body and author to the image in the format of `"quote_body" - quote_author`. It then returns a file path to the saved meme.<br>
     Method signature:
     ```python
     make_meme(self, img_path: str, quote: str, author: str, width: int = 500) -> str
     ```
-<br>
 
 #### QuoteEngine
 This module exposes:
@@ -116,16 +106,16 @@ from QuoteEngine.Models import QuoteModel
 * [python-docx](https://python-docx.readthedocs.io/en/latest/) is a Python library for creating and updating Microsoft Word (.docx) files. This project uses it to parse data from .docx files.
 
 * [XpdfReader](https://www.xpdfreader.com/index.html) is a free PDF viewer and toolkit, including a text extractor, image converter, HTML converter, and more. This project uses `pdftotext` that is part of the XpdfReader command line tools to parse data from .pdf files.
-<br>
+
 
 ##### **Functions**
-* [can_ingest](./QuoteEngine/ingestor_interface.py#L12) function takes an instance of the class and a file path as input. It attempts to determine whether we have an ingestor that can handle the file type which was passed. This function is only implemented at the Interface layer which all inheriting classes also have access to.<br><br>
+* [can_ingest](./QuoteEngine/ingestor_interface.py#L12) function takes an instance of the class and a file path as input. It attempts to determine whether we have an ingestor that can handle the file type which was passed. This function is only implemented at the Interface layer which all inheriting classes also have access to.<br>
     Method signature:
     ```python
     can_ingest(cls, path: str) -> bool
     ```
 
-* [parse](./QuoteEngine/Ingestor.py#L25) function takes a file path as input, attempts to parse its contents and returns a List of QuoteModel's for consumption.<br><br>
+* [parse](./QuoteEngine/Ingestor.py#L25) function takes a file path as input, attempts to parse its contents and returns a List of QuoteModel's for consumption.<br>
     Method signature:
     ```python
     parse(cls, path: str) -> List[QuoteModel]
@@ -133,7 +123,6 @@ from QuoteEngine.Models import QuoteModel
 
     >*note: The generic Ingestor and all specific file ingestors implement the [parse()]([IngestorInterface](./QuoteEngine/ingestor_interface.py#L25)) method of the [IngestorInterface](./QuoteEngine/ingestor_interface.py#L7) class.*
 
-<br>
 
 ##### **Adding ingestors for other file types**
 By default, the file types .docx, .txt, .pdf and .csv are supported. However, you may require quotes to be loaded from other types of files. To do so, simply follow the steps below:
@@ -176,8 +165,7 @@ By default, the file types .docx, .txt, .pdf and .csv are supported. However, yo
     from QuoteEngine.Ingestors.my_new_ingestor import MyNewIngestorClass
     ```
 Your new class will also automatically become available for the generic Ingestor without any additional steps.
-<br>
-<br>
+
 
 ## Getting Started
 
@@ -194,8 +182,7 @@ Here we have a quick overview of the key dependencies used in the creation of th
 * [python-docx](https://python-docx.readthedocs.io/en/latest/) is a Python library for creating and updating Microsoft Word (.docx) files. This project uses it to parse data from .docx files.
 
 * [XpdfReader](https://www.xpdfreader.com/index.html) is a free PDF viewer and toolkit, including a text extractor, image converter, HTML converter, and more. This project uses `pdftotext` that is part of the XpdfReader command line tools to parse data from .pdf files.
-<br>
-<br>
+
 
 ### Installing Dependencies
 Before we can run our Flask app, we need to ensure our environment is set up correctly.
@@ -215,8 +202,7 @@ Before we can run our Flask app, we need to ensure our environment is set up cor
     pip install -r requirements.txt;
     ```
     This will install all of the required packages within the [requirements.txt](./requirements.txt) file including our key dependencies.
-<br>
-<br>
+
 
 ### Configuring Environment Variables
 Once dependencies have been installed, we need to configure environment variables for our Flask app.
@@ -230,8 +216,7 @@ export FLASK_ENV=development;
 Through the `FLASK_APP` variable we are instructing `Flask` to start the app [app.py](./app.py).
 
 Additionally we are setting the `FLASK_ENV` variable to indicate that the app should be started in development mode. More info on this can be found under [Environment and Debug Features](https://flask.palletsprojects.com/en/2.0.x/config/#environment-and-debug-features) in the Flask documentation.
-<br>
-<br>
+
 
 ### Running the Flask Web App
 To run the app, navigate to the root directory and run:
@@ -241,7 +226,6 @@ flask run;
 The web app will be available under [http://localhost:5000](http://localhost:5000) by default.
 >*note:* Ensure the virtual environment you created earlier is currently active or dependency errors may occur.
 
-<br>
 
 ### Using the Command Line Tool
 This project also comes with a command line tool that generates a meme based on input provided.
