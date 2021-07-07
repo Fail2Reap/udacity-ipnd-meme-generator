@@ -18,6 +18,6 @@ class CSVIngestor(IngestorInterface):
             path (str): Path to the file to ingest.
         """
         return [
-            QuoteModel(row.body, row.author)
+            QuoteModel(row.body.replace('"', ""), row.author)
             for _, row in read_csv(path, header=0).iterrows()
         ]

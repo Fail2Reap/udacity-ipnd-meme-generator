@@ -4,7 +4,7 @@ import requests
 from flask import Flask, render_template, abort, request
 
 # TODO Import your Ingestor and MemeEngine classes
-from MemeEngine import MemeEngine, generate_meme
+from MemeGenerator import MemeEngine, generate_meme
 from QuoteEngine.Ingestors import DocxIngestor, TxtIngestor, PdfIngestor, \
                                   CsvIngestor
 

@@ -17,6 +17,6 @@ class TextIngestor(IngestorInterface):
         """
         with open(path, encoding="utf-8-sig") as file:
             return [
-                QuoteModel(*line.rstrip("\n").split(" - "))
+                QuoteModel(*line.replace('"', "").rstrip("\n").split(" - "))
                 for line in file.readlines()
             ]
