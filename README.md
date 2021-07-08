@@ -78,7 +78,7 @@ This module exposes the MemeEngine class and its functions.
 * [Pillow](https://pillow.readthedocs.io/en/stable/index.html) is a Python Imaging Library that adds image processing capabilities to your Python interpreter. This project uses it to manipulate and work with images to generate memes.
 
 ##### **Functions**
-* [make_meme](./MemeGenerator/meme_engine.py#L28) function takes an instance of the [MemeEngine](./MemeGenerator/meme_engine.py#L8) class, an image source path, a quote body, a quote author and an optional width to resize the meme to. It then manipulates the image and adds the quote body and author to the image in the format of `"quote_body" - quote_author`. It then returns a file path to the saved meme.<br>
+* [make_meme](./MemeGenerator/meme_engine.py#L28) function takes an instance of the [MemeEngine](./MemeGenerator/meme_engine.py#L8) class, an image source path, a quote body, a quote author and an optional width to resize the meme to. It then manipulates the image and adds the quote body and author to the image in the format of `"quote_body" - quote_author`. It then returns a file path to the saved meme.<br><br>
     Method signature:
     ```python
     make_meme(self, img_path: str, quote: str, author: str, width: int = 500) -> str
@@ -109,13 +109,13 @@ from QuoteEngine.Models import QuoteModel
 
 
 ##### **Functions**
-* [can_ingest](./QuoteEngine/ingestor_interface.py#L12) function takes an instance of the class and a file path as input. It attempts to determine whether we have an ingestor that can handle the file type which was passed. This function is only implemented at the Interface layer which all inheriting classes also have access to.<br>
+* [can_ingest](./QuoteEngine/ingestor_interface.py#L12) function takes an instance of the class and a file path as input. It attempts to determine whether we have an ingestor that can handle the file type which was passed. This function is only implemented at the Interface layer which all inheriting classes also have access to.<br><br>
     Method signature:
     ```python
     can_ingest(cls, path: str) -> bool
     ```
 
-* [parse](./QuoteEngine/Ingestor.py#L25) function takes a file path as input, attempts to parse its contents and returns a List of QuoteModel's for consumption.<br>
+* [parse](./QuoteEngine/Ingestor.py#L25) function takes a file path as input, attempts to parse its contents and returns a List of QuoteModel's for consumption.<br><br>
     Method signature:
     ```python
     parse(cls, path: str) -> List[QuoteModel]
