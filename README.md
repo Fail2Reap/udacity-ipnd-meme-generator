@@ -230,18 +230,18 @@ The web app will be available under [http://localhost:5000](http://localhost:500
 ### Using the Command Line Tool
 This project also comes with a command line tool that generates a meme based on input provided.
 
-Example Usage:
+Example usage:
 ```bash
 python3 main.py -p "/tmp/my_super_awesome_source_meme.png" -a "Mooncake" -b "Chookity"
 ```
 
-Example Output:
+Example output:
 ```bash
 /project/udacity-ipnd-meme-generator/tmp/meme-0xq1p0bj.png
 ```
 
 
-Help Output:<br>
+Help output:<br>
 ```
 usage: main.py [-h] [-p PATH] [-b BODY] [-a AUTHOR]
 
