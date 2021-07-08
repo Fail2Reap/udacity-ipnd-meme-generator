@@ -56,7 +56,8 @@ def meme_rand():
 
     return render_template(
         'meme.html',
-        path=url_for('static', filename=f'images/{path.split("/")[-1]}'))
+        path=url_for('static', 
+                     filename=f'images/{os.path.basename(path)}'))
 
 
 @app.route('/create', methods=['GET'])
@@ -108,7 +109,8 @@ def meme_post():
 
     return render_template(
         'meme.html',
-        path=url_for('static', filename=f'images/{path.split("/")[-1]}'))
+        path=url_for('static', 
+                     filename=f'images/{os.path.basename(path)}'))
 
 
 if __name__ == "__main__":
